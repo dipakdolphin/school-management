@@ -158,7 +158,7 @@ public class login extends javax.swing.JFrame {
           Class.forName("com.mysql.jdbc.Driver"); 
           ps=connection.prepareStatement("SELECT * FROM `login`WHERE user_name=? and password=?");
           ps.setString(1, username.getText());
-          ps.setString(2, login_password.getText());
+          ps.setString(2, new String(login_password.getPassword()));
           ResultSet rs= ps.executeQuery();
            if(rs.next()) {
            Categories a = new Categories();
