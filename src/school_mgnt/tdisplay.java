@@ -5,17 +5,26 @@
  */
 package school_mgnt;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dipak
  */
 public class tdisplay extends javax.swing.JFrame {
-
+DefaultTableModel model;
     /**
      * Creates new form tdisplay
      */
     public tdisplay() {
         initComponents();
+        model=(DefaultTableModel)table.getModel();
     }
 
     /**
@@ -27,17 +36,21 @@ public class tdisplay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Name", "Address", "Phone", "Nationality", "Subjects", "Gender", "DOJ", "Religion", "Salary", "Catagory"
+                "ID", "Name", "Address", "Phone", "Nationality", "Subjects", "Gender", "DOJ", "Religion", "Salary", "Category"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -48,21 +61,72 @@ public class tdisplay extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
+
+        jButton2.setText("Display");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         try{
+          Connection con;
+          PreparedStatement ps;
+          Statement stmt;
+          ResultSet rs;
+          String uname="root";
+          String pass="";
+          String path=("jdbc:mysql://localhost:3306/school");
+          Class.forName("com.mysql.jdbc.Driver");
+           con =DriverManager.getConnection(path,uname,pass);
+          stmt=con.createStatement();
+          ps = con.prepareStatement("select * from `teachers`");
+          rs=ps.executeQuery();
+          while(rs.next()){
+              String id,name,address,phone,nationality,subjects,gender,date,religion,salary,category;
+              id=rs.getString("id");
+              name=rs.getString("name");
+              address=rs.getString("address");
+              phone=rs.getString("phone");
+              nationality=rs.getString("nationality");
+             subjects=rs.getString("subjects");
+             gender=rs.getString("gender");
+             date=rs.getString("date_of_joinng");
+             religion=rs.getString("religion");
+             salary=rs.getString("salary");
+             category=rs.getString("category");
+              model.insertRow(model.getRowCount(), new Object[]{id,name,address,phone,nationality,subjects,gender,date,religion,salary,category});             
+         }
+          
+       JOptionPane.showMessageDialog(null, "success");
+    }                                    
+catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error:"+e);
+    } 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,7 +164,9 @@ public class tdisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
