@@ -87,7 +87,7 @@ public class teachers_details extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Catagory");
+        jLabel9.setText("Category");
 
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
