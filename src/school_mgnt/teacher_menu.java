@@ -31,9 +31,9 @@ public class teacher_menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         create = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        search = new javax.swing.JRadioButton();
+        update = new javax.swing.JRadioButton();
+        delete = new javax.swing.JRadioButton();
         jButton15 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -50,19 +50,19 @@ public class teacher_menu extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Display");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Search");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(search);
+        search.setText("Search");
+        search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                searchActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Update");
+        buttonGroup1.add(update);
+        update.setText("Update");
 
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setText("Delete");
+        buttonGroup1.add(delete);
+        delete.setText("Delete");
 
         jButton15.setText("Next");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +85,9 @@ public class teacher_menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(delete, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(update, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(create, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -106,11 +106,11 @@ public class teacher_menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3)
+                        .addComponent(search)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton4)
+                        .addComponent(update)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton5)
+                        .addComponent(delete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(183, Short.MAX_VALUE))
@@ -201,9 +201,9 @@ public class teacher_menu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_searchActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
        if(create.isSelected()){
@@ -212,6 +212,19 @@ public class teacher_menu extends javax.swing.JFrame {
        dispose();
        
     }
+       if(search.isSelected()){
+       tsearch a= new tsearch();
+       a.setVisible(true);
+       dispose();}
+       if(update.isSelected()){
+       tupdate a= new tupdate();
+       a.setVisible(true);
+       dispose();}
+       if(delete.isSelected()){
+       tupdate a= new tupdate();
+       a.setVisible(true);
+       dispose();}
+
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -264,6 +277,7 @@ public class teacher_menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton create;
+    private javax.swing.JRadioButton delete;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -273,8 +287,7 @@ public class teacher_menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton search;
+    private javax.swing.JRadioButton update;
     // End of variables declaration//GEN-END:variables
 }
