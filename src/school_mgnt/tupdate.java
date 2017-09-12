@@ -467,7 +467,7 @@ public class tupdate extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con =DriverManager.getConnection(path,uname,pass);
             stmt=con.createStatement();
-            stmt.executeUpdate("DELETE FROM `students` WHERE `teachers`.`id` = '"+jTextField1.getText()+"'");
+            stmt.executeUpdate("DELETE FROM `teachers` WHERE `teachers`.`id` = '"+jTextField1.getText()+"'");
 
             JOptionPane.showMessageDialog(null, "success");
         }
