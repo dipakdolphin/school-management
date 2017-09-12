@@ -80,7 +80,7 @@ public class update extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Ubuntu Condensed", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(247, 228, 228));
-        jLabel7.setText("UPDATE/DELETE STUDENT'S RECORD");
+        jLabel7.setText("UPDATE/DELETE TEACHER'S RECORD");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -507,7 +507,7 @@ try{
           stmt=con.createStatement();
           stmt.executeUpdate("DELETE FROM `students` WHERE `students`.`rollno` = '"+jTextField1.getText()+"'");
           
-       JOptionPane.showMessageDialog(null, "success");
+       JOptionPane.showMessageDialog(null, "Record deleted successfully");
     }                                    
 catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
