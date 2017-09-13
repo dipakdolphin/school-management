@@ -80,7 +80,7 @@ public class update extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Ubuntu Condensed", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(247, 228, 228));
-        jLabel7.setText("UPDATE/DELETE TEACHER'S RECORD");
+        jLabel7.setText("UPDATE/DELETE STUDENT'S RECORD");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -490,6 +490,20 @@ public class update extends javax.swing.JFrame {
           stmt.executeUpdate("UPDATE `students` SET `name` = '"+sname.getText()+"',`class`='"+sclass.getText()+"',`rollno`='"+roll.getText()+"',`section`='"+sec.getText()+"',`dob`='"+date.getText()+"', `address`='"+address.getText()+"',`phoneno`='"+phone.getText()+"',`father_name`='"+fname.getText()+"',`previous_school`='"+prevschool.getText()+"',`gender`='"+gender.getText()+"',`nationality`='"+nationality.getText()+"',`religion`='"+religion.getText()+"',`mother_name`='"+mname.getText()+"',`father_phone`='"+fno.getText()+"' WHERE `students`.`rollno` = '"+jTextField1.getText()+"'");
           
        JOptionPane.showMessageDialog(null, "success");
+            sname.setText("");
+            sclass.setText("");
+            roll.setText("");
+            sec.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            gender.setText("");
+            date.setText("");
+            religion.setText("");
+            fname.setText("");
+            mname.setText("");
+            prevschool.setText("");
+            fno.setText("");
     }                                    
 catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
@@ -511,6 +525,20 @@ try{
           stmt.executeUpdate("DELETE FROM `students` WHERE `students`.`rollno` = '"+jTextField1.getText()+"'");
           
        JOptionPane.showMessageDialog(null, "Record deleted successfully");
+       sname.setText("");
+            sclass.setText("");
+            roll.setText("");
+            sec.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            gender.setText("");
+            date.setText("");
+            religion.setText("");
+            fname.setText("");
+            mname.setText("");
+            prevschool.setText("");
+            fno.setText("");
     }                                    
 catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
