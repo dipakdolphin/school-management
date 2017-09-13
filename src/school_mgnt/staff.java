@@ -247,6 +247,14 @@ if(search.isSelected()){
 sscearch a = new sscearch();
 a.setVisible(true);
 dispose();} 
+if(update.isSelected()){
+supdate a = new supdate();
+a.setVisible(true);
+dispose();} 
+if(delete.isSelected()){
+supdate a = new supdate();
+a.setVisible(true);
+dispose();} 
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
