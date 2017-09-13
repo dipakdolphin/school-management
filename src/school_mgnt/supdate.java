@@ -73,7 +73,7 @@ public class supdate extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Ubuntu Condensed", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(247, 228, 228));
-        jLabel7.setText("SAFFS DETAILS UPDATE/DELETE");
+        jLabel7.setText("SAFFS RECORD UPDATE/DELETE");
 
         jButton4.setIcon(new javax.swing.ImageIcon("/home/dipak/Downloads/back.png")); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class supdate extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,6 +427,19 @@ public class supdate extends javax.swing.JFrame {
             stmt.executeUpdate("UPDATE `Staffs` SET `id` = '"+id.getText()+"',`name`='"+tname.getText()+"',`address`='"+address.getText()+"',`phone`='"+phone.getText()+"',`nationality`='"+nationality.getText()+"', `position`='"+position.getText()+"',`gender`='"+gender.getText()+"',`date_of_joining`='"+doj.getText()+"',`religion`='"+religion.getText()+"',`salary`='"+salary.getText()+"',`category`='"+category.getText()+"' WHERE `Staffs`.`id` = '"+jTextField1.getText()+"'");
 
             JOptionPane.showMessageDialog(null, "success");
+            id.setText("");
+            tname.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            position.setText("");
+            gender.setText("");
+            doj.setText("");
+            religion.setText("");
+            salary.setText("");
+            category.setText("");
+            
+            
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
@@ -451,6 +464,17 @@ public class supdate extends javax.swing.JFrame {
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
+            id.setText("");
+            tname.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            position.setText("");
+            gender.setText("");
+            doj.setText("");
+            religion.setText("");
+            salary.setText("");
+            category.setText("");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
