@@ -76,7 +76,7 @@ public class tupdate extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Ubuntu Condensed", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(247, 228, 228));
-        jLabel7.setText("TEACHER'S DETAILS");
+        jLabel7.setText("TEACHER RECORD UPDATE/DELETE");
 
         jButton13.setIcon(new javax.swing.ImageIcon("/home/dipak/Downloads/Home-PNG-Image.png")); // NOI18N
         jButton13.setPreferredSize(new java.awt.Dimension(72, 28));
@@ -112,9 +112,9 @@ public class tupdate extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4))
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +127,7 @@ public class tupdate extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(32, 32, 32)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -449,6 +449,17 @@ public class tupdate extends javax.swing.JFrame {
             stmt.executeUpdate("UPDATE `teachers` SET `id` = '"+id.getText()+"',`name`='"+tname.getText()+"',`address`='"+address.getText()+"',`phone`='"+phone.getText()+"',`nationality`='"+nationality.getText()+"', `subjects`='"+subjects.getText()+"',`gender`='"+gender.getText()+"',`date_of_joinng`='"+doj.getText()+"',`religion`='"+religion.getText()+"',`salary`='"+salary.getText()+"',`category`='"+category.getText()+"' WHERE `teachers`.`id` = '"+jTextField1.getText()+"'");
 
             JOptionPane.showMessageDialog(null, "success");
+            id.setText("");
+            tname.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            subjects.setText("");
+            gender.setText("");
+            doj.setText("");
+            religion.setText("");
+            salary.setText("");
+            category.setText("");
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
@@ -470,6 +481,17 @@ public class tupdate extends javax.swing.JFrame {
             stmt.executeUpdate("DELETE FROM `teachers` WHERE `teachers`.`id` = '"+jTextField1.getText()+"'");
 
             JOptionPane.showMessageDialog(null, "success");
+            id.setText("");
+            tname.setText("");
+            address.setText("");
+            phone.setText("");
+            nationality.setText("");
+            subjects.setText("");
+            gender.setText("");
+            doj.setText("");
+            religion.setText("");
+            salary.setText("");
+            category.setText("");
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
