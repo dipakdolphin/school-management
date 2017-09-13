@@ -243,6 +243,11 @@ if(display.isSelected()){
 sdisplay a = new sdisplay();
 a.setVisible(true);
 dispose();} 
+if(search.isSelected()){
+sscearch a = new sscearch();
+a.setVisible(true);
+dispose();} 
+
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
