@@ -218,13 +218,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="gender" pref="114" max="32767" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="address" alignment="0" pref="114" max="32767" attributes="0"/>
-                              <Component id="phone" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nationality" pref="114" max="32767" attributes="0"/>
-                              <Component id="name" alignment="0" pref="114" max="32767" attributes="0"/>
-                              <Component id="id" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="address" alignment="0" pref="114" max="32767" attributes="0"/>
+                          <Component id="phone" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nationality" pref="114" max="32767" attributes="0"/>
+                          <Component id="name" alignment="0" pref="114" max="32767" attributes="0"/>
+                          <Component id="id" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -240,15 +238,17 @@
                               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="doj" alignment="0" max="32767" attributes="0"/>
-                          <Component id="religion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="salary" alignment="0" max="32767" attributes="0"/>
-                          <Component id="category" alignment="0" pref="121" max="32767" attributes="0"/>
-                          <Component id="position" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="religion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="salary" alignment="0" max="32767" attributes="0"/>
+                              <Component id="category" alignment="0" pref="121" max="32767" attributes="0"/>
+                              <Component id="position" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="date" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -272,11 +272,13 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doj" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="date" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -387,11 +389,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nationalityActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="doj">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dojActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="salary">
             </Component>
             <Component class="javax.swing.JTextField" name="religion">
@@ -447,6 +444,11 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="date">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

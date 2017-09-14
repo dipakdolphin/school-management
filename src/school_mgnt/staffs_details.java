@@ -54,7 +54,6 @@ public class staffs_details extends javax.swing.JFrame {
         address = new javax.swing.JTextField();
         phone = new javax.swing.JTextField();
         nationality = new javax.swing.JTextField();
-        doj = new javax.swing.JTextField();
         salary = new javax.swing.JTextField();
         religion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -65,6 +64,7 @@ public class staffs_details extends javax.swing.JFrame {
         position = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         gender = new javax.swing.JComboBox<>();
+        date = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,12 +183,6 @@ public class staffs_details extends javax.swing.JFrame {
             }
         });
 
-        doj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dojActionPerformed(evt);
-            }
-        });
-
         jLabel9.setText("Category");
 
         jButton1.setText("Save");
@@ -212,6 +206,8 @@ public class staffs_details extends javax.swing.JFrame {
         jLabel12.setText("Gender");
 
         gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
+
+        date.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -237,12 +233,11 @@ public class staffs_details extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(gender, 0, 114, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                        .addComponent(phone)
-                        .addComponent(nationality, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                        .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                        .addComponent(id)))
+                    .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(phone)
+                    .addComponent(nationality, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(id))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -254,14 +249,15 @@ public class staffs_details extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(doj)
-                    .addComponent(religion)
-                    .addComponent(salary)
-                    .addComponent(category, 0, 121, Short.MAX_VALUE)
-                    .addComponent(position))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(religion)
+                        .addComponent(salary)
+                        .addComponent(category, 0, 121, Short.MAX_VALUE)
+                        .addComponent(position))
+                    .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,11 +274,12 @@ public class staffs_details extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(position, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(doj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel5))
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -379,10 +376,6 @@ public class staffs_details extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
-    private void dojActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dojActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dojActionPerformed
-
     private void positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_positionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_positionActionPerformed
@@ -398,8 +391,12 @@ public class staffs_details extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(path,"root","");
             stmt = con.createStatement();
+             java.util.Date utilStartDate = date.getDate();
+            java.sql.Date sqlStartDate =
+                    new java.sql.Date(utilStartDate.getTime());
 
-            stmt.executeUpdate("insert into `Staffs` values ('"+id.getText()+"','"+name.getText()+"','"+address.getText()+"','"+phone.getText()+"','"+nationality.getText()+"', '"+position.getText()+"','"+gender.getSelectedItem()+"','"+doj.getText()+"','"+religion.getText()+"','"+salary.getText()+"','"+category.getSelectedItem()+"')");
+
+            stmt.executeUpdate("insert into `Staffs` values ('"+id.getText()+"','"+name.getText()+"','"+address.getText()+"','"+phone.getText()+"','"+nationality.getText()+"', '"+position.getText()+"','"+gender.getSelectedItem()+"','"+sqlStartDate+"','"+religion.getText()+"','"+salary.getText()+"','"+category.getSelectedItem()+"')");
             JOptionPane.showMessageDialog(null,"Success");
         }
         catch(Exception e){
@@ -445,7 +442,7 @@ public class staffs_details extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JComboBox<String> category;
-    private javax.swing.JTextField doj;
+    private com.toedter.calendar.JDateChooser date;
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
