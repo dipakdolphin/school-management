@@ -6,6 +6,8 @@
 package school_mgnt;
 
 import java.awt.event.KeyEvent;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -146,11 +148,43 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public String aaa(String a)
+    {
+        
+       String passwordToHash = a;
+        String generatedPassword = null;
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(passwordToHash.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            generatedPassword = sb.toString();
+        }
+        catch (Exception e)
+        {
+        }
+        //System.out.println(generatedPassword);
+        return generatedPassword;
+    
+       
+       
+   }
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
  Connection connection;
           PreparedStatement ps;
         try{
+            String b =aaa(login_password.getText());
+           // System.out.println(b);
           String uname="root";
           String pass="";
           String path=("jdbc:mysql://localhost:3306/school");
@@ -158,7 +192,7 @@ public class login extends javax.swing.JFrame {
           Class.forName("com.mysql.jdbc.Driver"); 
           ps=connection.prepareStatement("SELECT * FROM `login`WHERE user_name=? and password=?");
           ps.setString(1, username.getText());
-          ps.setString(2, new String(login_password.getPassword()));
+          ps.setString(2, b);
           ResultSet rs= ps.executeQuery();
            if(rs.next()) {
            Categories a = new Categories();
@@ -193,6 +227,7 @@ catch(Exception e){
         Connection connection;
           PreparedStatement ps;
         try{
+            String b =aaa(login_password.getText());
           String uname="root";
           String pass="";
           String path=("jdbc:mysql://localhost:3306/school");
@@ -200,7 +235,7 @@ catch(Exception e){
           Class.forName("com.mysql.jdbc.Driver"); 
           ps=connection.prepareStatement("SELECT * FROM `login`WHERE user_name=? and password=?");
           ps.setString(1, username.getText());
-          ps.setString(2, login_password.getText());
+         ps.setString(2, b);
           ResultSet rs= ps.executeQuery();
            if(rs.next()) {
            Categories a = new Categories();
