@@ -47,7 +47,6 @@ public class teachers_details extends javax.swing.JFrame {
         address = new javax.swing.JTextField();
         phone = new javax.swing.JTextField();
         nationality = new javax.swing.JTextField();
-        doj = new javax.swing.JTextField();
         salary = new javax.swing.JTextField();
         religion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -58,6 +57,7 @@ public class teachers_details extends javax.swing.JFrame {
         id = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         gender = new javax.swing.JComboBox<>();
+        date = new com.toedter.calendar.JDateChooser();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -110,6 +110,8 @@ public class teachers_details extends javax.swing.JFrame {
 
         gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
 
+        date.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,15 +148,15 @@ public class teachers_details extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(doj)
                                 .addComponent(religion)
                                 .addComponent(salary)
                                 .addComponent(gender, 0, 121, Short.MAX_VALUE))
-                            .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(260, 260, 260)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,11 +173,12 @@ public class teachers_details extends javax.swing.JFrame {
                             .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addGap(4, 4, 4)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(doj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel5))
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,8 +325,11 @@ public class teachers_details extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(path,"root","");
             stmt = con.createStatement();
+ java.util.Date utilStartDate = date.getDate();
+            java.sql.Date sqlStartDate =
+                    new java.sql.Date(utilStartDate.getTime());
 
-            stmt.executeUpdate("insert into `teachers` values ('"+id.getText()+"','"+tname.getText()+"','"+address.getText()+"','"+phone.getText()+"','"+nationality.getText()+"', '"+subjects.getText()+"','"+gender.getSelectedItem()+"','"+doj.getText()+"','"+religion.getText()+"','"+salary.getText()+"','"+category.getSelectedItem()+"')");
+            stmt.executeUpdate("insert into `teachers` values ('"+id.getText()+"','"+tname.getText()+"','"+address.getText()+"','"+phone.getText()+"','"+nationality.getText()+"', '"+subjects.getText()+"','"+gender.getSelectedItem()+"','"+sqlStartDate+"','"+religion.getText()+"','"+salary.getText()+"','"+category.getSelectedItem()+"')");
             JOptionPane.showMessageDialog(null,"Success");
         }
         catch(Exception e){
@@ -371,7 +377,7 @@ public class teachers_details extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JComboBox<String> category;
-    private javax.swing.JTextField doj;
+    private com.toedter.calendar.JDateChooser date;
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
