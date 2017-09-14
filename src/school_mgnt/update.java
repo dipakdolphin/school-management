@@ -487,8 +487,16 @@ public class update extends javax.swing.JFrame {
           Class.forName("com.mysql.jdbc.Driver");
            con =DriverManager.getConnection(path,uname,pass);
           stmt=con.createStatement();
-          stmt.executeUpdate("UPDATE `students` SET `name` = '"+sname.getText()+"',`class`='"+sclass.getText()+"',`rollno`='"+roll.getText()+"',`section`='"+sec.getText()+"',`dob`='"+date.getText()+"', `address`='"+address.getText()+"',`phoneno`='"+phone.getText()+"',`father_name`='"+fname.getText()+"',`previous_school`='"+prevschool.getText()+"',`gender`='"+gender.getText()+"',`nationality`='"+nationality.getText()+"',`religion`='"+religion.getText()+"',`mother_name`='"+mname.getText()+"',`father_phone`='"+fno.getText()+"' WHERE `students`.`rollno` = '"+jTextField1.getText()+"'");
-          
+          stmt.executeUpdate("UPDATE `students` SET `name` = '"+sname.getText()
+                  +"',`class`='"+sclass.getText()+"',`rollno`='"+roll.getText()
+                  +"',`section`='"+sec.getText()+"',`dob`='"+date.getText()
+                  +"', `address`='"+address.getText()+"',`phoneno`='"
+                  +phone.getText()+"',`father_name`='"+fname.getText()
+                  +"',`previous_school`='"+prevschool.getText()+"',`gender`='"
+                  +gender.getText()+"',`nationality`='"+nationality.getText()
+                  +"',`religion`='"+religion.getText()+"',`mother_name`='"
+                  +mname.getText()+"',`father_phone`='"+fno.getText()
+                  +"' WHERE `students`.`rollno` = '"+jTextField1.getText()+"'"); 
        JOptionPane.showMessageDialog(null, "success");
             sname.setText("");
             sclass.setText("");
