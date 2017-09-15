@@ -98,7 +98,7 @@ public class students_menu extends javax.swing.JFrame {
                             .addComponent(search)
                             .addComponent(show)
                             .addComponent(create)
-                            .addComponent(delete)))
+                            .addComponent(delete, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
