@@ -53,8 +53,6 @@ public class sdisplay extends javax.swing.JFrame {
              category=rs.getString("category");
               model.insertRow(model.getRowCount(), new Object[]{id,name,address,phone,nationality,position,gender,date,religion,salary,category});             
          }
-          
-       JOptionPane.showMessageDialog(null, "success");
     }                                    
 catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error:"+e);
