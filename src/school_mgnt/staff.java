@@ -238,23 +238,29 @@ public class staff extends javax.swing.JFrame {
 if(create.isSelected()){
 staffs_details a = new staffs_details();
 a.setVisible(true);
-dispose();}
+dispose();
+}
+
 if(display.isSelected()){
 sdisplay a = new sdisplay();
 a.setVisible(true);
-dispose();} 
+dispose();
+} 
 if(search.isSelected()){
 sscearch a = new sscearch();
 a.setVisible(true);
-dispose();} 
+dispose();
+} 
 if(update.isSelected()){
 supdate a = new supdate();
 a.setVisible(true);
-dispose();} 
+dispose();
+} 
 if(delete.isSelected()){
 supdate a = new supdate();
 a.setVisible(true);
-dispose();} 
+dispose();
+} 
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
