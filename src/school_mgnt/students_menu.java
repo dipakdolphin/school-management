@@ -5,6 +5,8 @@
  */
 package school_mgnt;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dipak
@@ -232,28 +234,29 @@ public class students_menu extends javax.swing.JFrame {
         a.setVisible(true);
         dispose();
         }
-        if(show.isSelected()){
+       else if(show.isSelected()){
             display a= new display();
             a.setVisible(true);
             dispose();
         
         }
-        if(search.isSelected()){
+       else if(search.isSelected()){
             Search a= new Search();
             a.setVisible(true);
             dispose();
         
-        }if(update.isSelected()){
+        }else if(update.isSelected()){
             update a= new update();
             a.setVisible(true);
             dispose();
         
-        }if(delete.isSelected()){
+        }else if(delete.isSelected()){
             update a= new update();
             a.setVisible(true);
             dispose();
         
         }
+        else JOptionPane.showMessageDialog(null,"!!Please make selection");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
