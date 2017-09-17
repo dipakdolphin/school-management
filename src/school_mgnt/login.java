@@ -243,7 +243,7 @@ catch(Exception e){
            dispose();
            }    
            else{
-               JOptionPane.showMessageDialog(null, "access denied");
+               JOptionPane.showMessageDialog(null, "Please enter correct username and password!!");
            }
     }                                    
 catch(Exception e){
